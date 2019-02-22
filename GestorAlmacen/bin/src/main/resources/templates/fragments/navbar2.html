@@ -1,0 +1,87 @@
+
+
+<!-- navbar -->
+<div th:fragment="navbar2">
+
+	<nav
+		class="navbar navbar-light py-0 .bg-light navbar-expand-lg py-md-0" id="menu">
+
+		<a class="navbar-brand " th:href="@{/}"><b>GestorLigas</b></a>
+		<button class="navbar-toggler mt-1" type="button"
+			data-toggle="collapse" data-target="#navbarNav" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<i class="fas fa-bars  shadow"></i>
+		</button>
+
+      
+		<div class="navbar-collapse collapse" id="navbarNav">
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item "><a class="nav-link "
+					th:href="@{/listar}">Clientes</a></li>
+				<li class="nav-item"><a class="nav-link "
+					th:href="@{/prueba}">Prueba</a></li>
+ <!-- menu desplegable -->
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Divisiones </a>
+			<ul>
+						<li><a class="dropdown-item" href='<c:url value= "/competicion/1" />'>1</a></li>
+						<li><a class="dropdown-item" href='<c:url value= "/competicion/2" />'>2</a></li>
+						<li><a class="dropdown-item" href='<c:url value= "/competicion/3" />'>3</a></li>
+
+					</ul>
+					</li>
+					
+				<li class="nav-item"><a class="nav-link"
+					href='<c:url value= "/usuario" />'>Registrar usuario</a>
+					</li>
+
+			</ul>
+			<ul class="navbar-nav ">
+<!-- 				<sec:authorize access="!isAuthenticated()"> -->
+
+<!-- 					<li><a class="nav-link " href='<c:url value= "/login" />'><i -->
+<!-- 							class="fas fa-sign-in-alt"></i> Login</a></li> -->
+
+<!-- 				</sec:authorize> -->
+
+<!-- 				<sec:authorize access="isAuthenticated()"> -->
+<!-- 					<sec:authentication property="principal" var="principal" /> -->
+<!-- 					<c:set var="username" value="${principal}" /> -->
+
+<!-- 					<li><a class="nav-link " href="#"> <i class="fas fa-user"></i> -->
+<!-- 							<c:out value="${username}"></c:out></a></li> -->
+
+
+<!-- 					<li><a class="nav-link " href='<c:url value= "/logout" />'><i -->
+<!-- 							class="fas fa-sign-out-alt"></i> Logout</a></li> -->
+<!-- 				</sec:authorize> -->
+			</ul>
+		</div>
+	</nav>
+	
+<!-- start nav -->
+<nav id="menu">
+<!-- start menu -->
+<ul>
+ <li><a href="#">Enlace 1</a></li>
+ 
+ <li><a href="#">Enlace 2</a>
+<!-- start menu desplegable -->
+ <ul>
+ <li><a href="#">Enlace 2.1</a></li>
+ <li><a href="#">Enlace 2.2</a></li>
+ <li><a href="#">Enlace 2.3</a></li>
+ </ul>
+<!-- end menu desplegable -->
+ </li>
+ 
+ <li><a href="#">Enlace 3</a></li>
+
+</ul>
+<!-- end menu -->
+</nav>
+<!-- end nav -->
+	
+
+</div>

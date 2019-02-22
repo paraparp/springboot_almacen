@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" th:href="@{/css/style.css}"></link>
+
+<style>
+
+
+
+	table.table .avatar {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 3px;
+	}
+
+
+
+</style>
+
+</head>
+
+<body style="background-color: #f2f2f2">
+	<div th:replace="fragments/imports :: imports"></div>
+	<nav th:replace="fragments/navbar :: navbar"></nav>
+
+
+	<div class="shadow-lg container-fluid bg-light text-center py-4" id="title">
+		 <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+						<h1 th:text="${titulo}" class="display-6"></h1>
+					</div>
+					<div class="col-sm-7">
+						<a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+						<a th:href="@{/form}" class="btn btn-outline-primary "><i class="fas fa-plus-circle"></i> Crear Cliente</a>					
+					</div>
+                </div>
+            </div>
+
+	</div>
+	<br>
+
+	<div class="container" style="width: 100%" align="center">
+	
+
+		<table id="miTabla" class="shadow display responsive-sm table table-hover">
+
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Nombre</td>
+					<td>Apellido</td>
+					<td>Email</td>
+					<td>Fecha</td>
+				
+					<td></td>
+<td></td>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<tr th:each="cliente: ${clientes}" >
+					<td th:text="${cliente.id}"></td>
+					<th th:text="${cliente.nombre}"></th>
+					<td th:text="${cliente.apellido}"></td>
+					<td th:text="${cliente.email}"></td>
+					<td th:text="${cliente.createAt}"></td>
+					<td> <img align="bottom" class="avatar"  width="35" th:if="${#strings.length(cliente.foto) > 0}"
+					style="max-width: 50%;" th:src="@{'/uploads/' + ${cliente.foto}}"
+					th:alt="${cliente.foto}" /></td>
+					<td>
+						<div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                         <a class="btn btn-outline-primary"  th:href="@{ver/} + ${cliente.id}">Ver </a>
+                         <a class="btn btn-outline-success " th:href="@{form/} + ${cliente.id}">Editar</a>
+ 						 <a class="btn btn-outline-danger" th:href="@{delete/} + ${cliente.id}"
+						onclick="return confirm('Estas seguro de que quiere eliminar?');" >Borrar</a>
+						</div>
+					</td>
+
+
+<!-- 				botones	 -->
+<!-- 					<td class="text-center"><a class="btn btn-outline-primary btn-block btn-sm" -->
+<!-- 						th:href="@{ver/} + ${cliente.id}">Ver</a></td> -->
+<!-- 					<td class="text-center"><a class="btn btn-outline-primary btn-block btn-sm" -->
+<!-- 						th:href="@{form/} + ${cliente.id}">Editar</a></td> -->
+<!-- 					<td class="text-center"><a class="btn btn-outline-primary btn-block btn-sm" -->
+<!-- 						th:href="@{delete/} + ${cliente.id}" -->
+<!-- 						onclick="return confirm('Estas seguro de que quiere eliminar?');" >Borrar </a></td> -->
+
+<!-- favicons -->
+					<!-- 					 <a th:href="@{ver/} + ${cliente.id}"><i class="fas fa-list-ul"></i></a> -->
+					<!-- 					 <a th:href="@{form/} + ${cliente.id}"> <i class="far fa-edit"></i></a> -->
+					<!-- 					 <a th:href="@{delete/} + ${cliente.id}" onclick="return confirm('Estas seguro de que quiere eliminar?');"> <i class="fas fa-trash-alt"></i></a> -->
+				</tr>
+			<tbody>
+		</table>
+		<br> <a th:href="@{/form}"><button class="btn btn-outline-primary btn-block">Crear Cliente</button></a>
+	</div>
+
+	<footer th:replace="fragments/navbar :: footer"></footer>
+</body>
+
+</html>

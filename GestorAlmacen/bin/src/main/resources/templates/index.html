@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/css/style.css}"></link>
+
+
+
+</head>
+
+<body class="text-center">
+<div th:replace="fragments/imports :: imports"></div>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+
+
+	<br>
+	<br>
+	<div class="container">
+
+
+		<img class="tab-pane fade show active" id="logo" width="40%"
+			th:src="@{/imagenes/26x50dtn.bmp}"
+			alt="Gestor Logo">
+	</div>
+	<div class=" container-fluid  text-center py-4">
+		<div class=" container text-secondary">
+
+			<p class="lead">Bienvenido al gestor de ligas deportivas</p>
+
+		</div>
+	</div>
+	<br>
+	<br>
+
+	
+		
+		<footer  th:replace="fragments/navbar :: footer"></footer>
+	
+</body>
+</html>
