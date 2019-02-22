@@ -1,6 +1,5 @@
 package com.paraparp.gestor.model.entity;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
